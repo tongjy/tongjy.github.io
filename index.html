@@ -1,2 +1,27 @@
-index.html
-Hello World！
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Redirect</title>
+</head>
+<body>
+
+<script>
+    // 获取当前日期
+    const day = new Date();
+        day.setHours(day.getHours() - 12 + 3);  //小半天
+        //day.setDate(day.getDate() - 1);       //前一天
+    const yyyy = day.getFullYear();
+    const mm = String(day.getMonth() + 1).padStart(2, '0'); // 月份从0开始，所以加1
+    const dd = String(day.getDate()).padStart(2, '0'); // 确保日期总是两位数
+
+    // 构造完整的URL
+    const url = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
+
+    // 重定向到构造的URL
+    window.location.href = url;
+</script>
+
+</body>
+</html>
