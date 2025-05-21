@@ -3,25 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Redirect</title>
+    <title>Welcome to Our Cool Project!</title>
+    <style>
+        @keyframes gentleFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); } /* Reduced movement */
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes slowDriftLeftToRight {
+            0% { transform: translateX(0px); opacity: 0.05; } /* Lower min opacity */
+            50% { transform: translateX(15px); opacity: 0.2; } /* Reduced movement, adjusted max opacity */
+            100% { transform: translateX(0px); opacity: 0.05; }
+        }
+        
+        @keyframes slowDriftRightToLeft {
+            0% { transform: translateX(0px); opacity: 0.2; } /* Adjusted max opacity */
+            50% { transform: translateX(-15px); opacity: 0.05; } /* Reduced movement, lower min opacity */
+            100% { transform: translateX(0px); opacity: 0.2; }
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1); /* Or a more solid color if needed */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative; /* Added */
+            z-index: 1; /* Added */
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+
+    .background-animations {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden; /* Hide parts of SVGs that move outside the viewport */
+        z-index: 0; /* Behind the main content but in front of body background */
+    }
+
+    .background-animations svg {
+        position: absolute;
+        width: 60px; /* Slightly larger for better visibility */
+        height: 60px;
+        color: #333333; /* Dark gray for shadow effect */
+        opacity: 0.15; /* Lowered base opacity */
+    }
+
+    .human-svg {
+        top: 15%;
+        left: 10%;
+        animation: gentleFloat 10s ease-in-out infinite, slowDriftLeftToRight 30s linear infinite;
+    }
+
+    .robot-svg {
+        top: 65%;
+        left: 85%;
+        animation: gentleFloat 12s ease-in-out infinite reverse, slowDriftRightToLeft 35s linear infinite;
+    }
+
+    .human-svg-2 {
+        top: 50%;
+        left: 30%;
+        width: 40px;
+        height: 40px;
+        animation: gentleFloat 11s ease-in-out infinite 1s, slowDriftRightToLeft 33s linear infinite 2s;
+    }
+
+    .human-svg-3 {
+        top: 80%;
+        left: 5%;
+        width: 70px;
+        height: 70px;
+        /* opacity: 0.15; Removed as it's now the base for all SVGs */
+        animation: gentleFloat 9s ease-in-out infinite 0.5s, slowDriftLeftToRight 27s linear infinite 1s;
+    }
+
+    .robot-svg-2 {
+        top: 30%;
+        left: 60%;
+        width: 45px;
+        height: 45px;
+        animation: gentleFloat 13s ease-in-out infinite reverse 1.5s, slowDriftLeftToRight 37s linear infinite 3s;
+    }
+
+    .sudoku-button {
+        background-color: #ff8c00; /* A distinct, friendly orange */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1em;
+        font-weight: bold;
+        margin-top: 20px; /* Space above the button */
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+
+    .sudoku-button:hover {
+        background-color: #e07b00; /* Darker orange on hover */
+        transform: translateY(-1px); /* Slight lift on hover */
+    }
+
+    .sudoku-button:active {
+        background-color: #c66a00; /* Even darker when clicked */
+        transform: translateY(0px); /* Back to original position when clicked */
+    }
+    </style>
 </head>
 <body>
+    <div class="background-animations">
+        <svg class="human-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="25" r="15" fill="currentColor" />
+          <rect x="35" y="40" width="30" height="35" fill="currentColor" />
+          <rect x="20" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="65" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="35" y="75" width="10" height="20" fill="currentColor" />
+          <rect x="55" y="75" width="10" height="20" fill="currentColor" />
+        </svg>
+        <svg class="robot-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="25" y="15" width="50" height="40" rx="5" ry="5" fill="currentColor" />
+          <rect x="40" y="5" width="20" height="10" fill="currentColor" />
+          <circle cx="35" cy="35" r="5" fill="white" />
+          <circle cx="65" cy="35" r="5" fill="white" />
+          <rect x="30" y="55" width="40" height="10" fill="currentColor" />
+          <rect x="30" y="65" width="10" height="25" fill="currentColor" />
+          <rect x="60" y="65" width="10" height="25" fill="currentColor" />
+          <rect x="25" y="90" width="15" height="5" fill="currentColor" />
+          <rect x="60" y="90" width="15" height="5" fill="currentColor" />
+        </svg>
+        <svg class="human-svg-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="25" r="15" fill="currentColor" />
+          <rect x="35" y="40" width="30" height="35" fill="currentColor" />
+          <rect x="20" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="65" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="35" y="75" width="10" height="20" fill="currentColor" />
+          <rect x="55" y="75" width="10" height="20" fill="currentColor" />
+        </svg>
+        <svg class="human-svg-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="25" r="15" fill="currentColor" />
+          <rect x="35" y="40" width="30" height="35" fill="currentColor" />
+          <rect x="20" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="65" y="40" width="15" height="25" rx="5" ry="5" fill="currentColor" />
+          <rect x="35" y="75" width="10" height="20" fill="currentColor" />
+          <rect x="55" y="75" width="10" height="20" fill="currentColor" />
+        </svg>
+        <svg class="robot-svg-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="25" y="15" width="50" height="40" rx="5" ry="5" fill="currentColor" />
+          <rect x="40" y="5" width="20" height="10" fill="currentColor" />
+          <circle cx="35" cy="35" r="5" fill="white" />
+          <circle cx="65" cy="35" r="5" fill="white" />
+          <rect x="30" y="55" width="40" height="10" fill="currentColor" />
+          <rect x="30" y="65" width="10" height="25" fill="currentColor" />
+          <rect x="60" y="65" width="10" height="25" fill="currentColor" />
+          <rect x="25" y="90" width="15" height="5" fill="currentColor" />
+          <rect x="60" y="90" width="15" height="5" fill="currentColor" />
+        </svg>
+    </div>
+    <div class="container">
+        <h1>🚀 Welcome Aboard! 🚀</h1>
+        <p>This is the brand new, super cool homepage for our project.</p>
+        <p>Stay tuned for more awesome updates!</p>
+        <button id="redirectButton" class="sudoku-button">Proceed to Sudoku</button>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const redirectButton = document.getElementById('redirectButton');
 
-<script>
-    // 获取当前日期
-    const day = new Date();
-        day.setHours(day.getHours() - 12 + 3);  //小半天
-        //day.setDate(day.getDate() - 1);       //前一天
-    const yyyy = day.getFullYear();
-    const mm = String(day.getMonth() + 1).padStart(2, '0'); // 月份从0开始，所以加1
-    const dd = String(day.getDate()).padStart(2, '0'); // 确保日期总是两位数
+        if (redirectButton) {
+            redirectButton.addEventListener('click', function() {
+                // Get current date
+                const day = new Date();
+                // Adjust for timezone or specific logic if needed, e.g., NYT posts puzzles based on a specific timezone.
+                // The original script had: day.setHours(day.getHours() - 12 + 3); //小半天
+                // Let's keep it for consistency for now, assuming it's intentional for the target Sudoku page.
+                day.setHours(day.getHours() - 12 + 3); 
 
-    // 构造完整的URL
-    const url = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
+                const yyyy = day.getFullYear();
+                const mm = String(day.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+                const dd = String(day.getDate()).padStart(2, '0');
 
-    // 重定向到构造的URL
-    window.location.href = url;
-</script>
+                // Construct the URL
+                const sudokuUrl = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
 
+                // Redirect
+                window.location.href = sudokuUrl;
+            });
+        }
+    });
+    </script>
 </body>
 </html>
