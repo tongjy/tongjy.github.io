@@ -3,25 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Redirect</title>
+    <title>Welcome to Our Cool Project!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-
-<script>
-    // 获取当前日期
-    const day = new Date();
-        day.setHours(day.getHours() - 12 + 3);  //小半天
-        //day.setDate(day.getDate() - 1);       //前一天
-    const yyyy = day.getFullYear();
-    const mm = String(day.getMonth() + 1).padStart(2, '0'); // 月份从0开始，所以加1
-    const dd = String(day.getDate()).padStart(2, '0'); // 确保日期总是两位数
-
-    // 构造完整的URL
-    const url = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
-
-    // 重定向到构造的URL
-    window.location.href = url;
-</script>
-
+    <div class="container">
+        <h1>🚀 Welcome Aboard! 🚀</h1>
+        <p>This is the brand new, super cool homepage for our project.</p>
+        <p>Stay tuned for more awesome updates!</p>
+    </div>
 </body>
 </html>
