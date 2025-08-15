@@ -132,6 +132,18 @@
         background-color: #c66a00; /* Even darker when clicked */
         transform: translateY(0px); /* Back to original position when clicked */
     }
+        /* New animation for floating stars */
+        @keyframes float {
+            0% { transform: translateY(100px); }
+            100% { transform: translateY(-100px); }
+        }
+        .star {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            fill: yellow; /* Color of the star */
+            animation: float 10s linear infinite; /* Floating effect */
+        }    
     </style>
 </head>
 <body>
@@ -181,6 +193,10 @@
           <rect x="60" y="65" width="10" height="25" fill="currentColor" />
           <rect x="25" y="90" width="15" height="5" fill="currentColor" />
           <rect x="60" y="90" width="15" height="5" fill="currentColor" />
+        </svg>
+        <!-- New star SVG -->
+        <svg class="star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+            <polygon points="10,1 12,7 18,7 13,11 15,17 10,13 5,17 7,11 2,7 8,7" />
         </svg>
     </div>
     <div class="container">
