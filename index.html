@@ -212,19 +212,20 @@
         if (redirectButton) {
             redirectButton.addEventListener('click', function() {
                 // Get current date
-                const day = new Date();
-                // Adjust for timezone or specific logic if needed, e.g., NYT posts puzzles based on a specific timezone.
-                // The original script had: day.setHours(day.getHours() - 12 + 3); //小半天
-                // Let's keep it for consistency for now, assuming it's intentional for the target Sudoku page.
-                day.setHours(day.getHours() - 12 + 3); 
+                // const day = new Date();
+                // // Adjust for timezone or specific logic if needed, e.g., NYT posts puzzles based on a specific timezone.
+                // // The original script had: day.setHours(day.getHours() - 12 + 3); //小半天
+                // // Let's keep it for consistency for now, assuming it's intentional for the target Sudoku page.
+                // day.setHours(day.getHours() - 12 + 3); 
 
-                const yyyy = day.getFullYear();
-                const mm = String(day.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
-                const dd = String(day.getDate()).padStart(2, '0');
+                // const yyyy = day.getFullYear();
+                // const mm = String(day.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+                // const dd = String(day.getDate()).padStart(2, '0');
 
-                // Construct the URL
-                const sudokuUrl = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
-
+                // // Construct the URL
+                // const sudokuUrl = `https://sudokupad.app/nyt/${yyyy}${mm}${dd}hard`;
+                // 
+                const sudokuUrl = 'https://sudokupad.app/assets/nyt.html';
                 // Redirect
                 window.location.href = sudokuUrl;
             });
